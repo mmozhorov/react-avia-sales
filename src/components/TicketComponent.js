@@ -9,22 +9,81 @@ export default class TicketComponent extends Component{
     constructor(props){
         super(props);
 
-        this.carrierLogo = "";
-        console.log(this.props.ticket.carrier);
-        switch (this.props.ticket.carrier) {
-            case "BA":
-                this.carrierLogo = BA;
+        this.departure_date = this.getDate(this.props.ticket.departure_date);
+        this.arrival_date = this.getDate(this.props.ticket.arrival_date);
+        this.carrierLogo = this.getCarrierLogo(this.props.ticket.carrier);
+
+    }
+
+    getDate(date){
+        const departure_date_array = date.split(".");
+
+        if (departure_date_array[2].length === 2){
+            departure_date_array[2] = "20" + departure_date_array[2];
+        }
+        const departure_date = new Date(departure_date_array[2],departure_date_array[1],departure_date_array[0]);
+        let result = departure_date_array[0] + " ";
+
+        switch (departure_date_array[1]) {
+            case "01":
+                result += "янв";
                 break;
-            case "S7":
-                this.carrierLogo = S7;
-                break;
-            case "SU":
-                this.carrierLogo = SU;
-                break;
-            case "TK":
-                this.carrierLogo = TK;
+            case "05":
+                result += "мая";
                 break;
         }
+
+        result = result + " " + departure_date_array[2] + ", ";
+
+
+        switch (departure_date.getDay()) {
+            case 0:
+                result = result + "Вс";
+                break;
+            case 1:
+                result = result + "Пн";
+                break;
+            case 2:
+                result = result + "Вт";
+                break;
+            case 3:
+                result = result + "Ср";
+                break;
+            case 4:
+                result = result + "Чт";
+                break;
+            case 5:
+                result = result + "Пт";
+                break;
+            case 6:
+                result = result + "Сб";
+                break;
+
+
+
+        }
+
+        return result;
+    }
+
+    getCarrierLogo(carrier){
+        let CarrierLogo = "";
+        switch (carrier) {
+            case "BA":
+                CarrierLogo = BA;
+                break;
+            case "S7":
+                CarrierLogo = S7;
+                break;
+            case "SU":
+                CarrierLogo = SU;
+                break;
+            case "TK":
+                CarrierLogo = TK;
+                break;
+        }
+        return CarrierLogo;
+
     }
 
     render() {
@@ -37,10 +96,14 @@ export default class TicketComponent extends Component{
                 <div className="col-md-8 ticket-container__right-part">
                     <div className="col-md-6">
                         <h3>{this.props.ticket.departure_time}</h3>
-                        <p>{this.props.ticket.destination}, {this.props.ticket.origin_name}</p>
-                        <p>{this.props.ticket.departure_date}</p>
+                        <p>{this.props.ticket.origin}, {this.props.ticket.origin_name}</p>
+                        <p>{this.departure_date}</p>
                     </div>
-                    <div className="col-md-6"></div>
+                    <div className="col-md-6">
+                        <h3>{this.props.ticket.arrival_time}</h3>
+                        <p>{this.props.ticket.destination}, {this.props.ticket.destination_name}</p>
+                        <p>{this.arrival_date}</p>
+                    </div>
                 </div>
             </div>
         );
