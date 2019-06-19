@@ -1,0 +1,10 @@
+body{
+  background-color: #f2f7fa;
+}
+
+
+@media all and (min-width: 1000px){
+  .container {
+    width: 1000px;
+  }
+}

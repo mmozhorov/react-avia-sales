@@ -1,0 +1,9 @@
+.form-tabs{
+    padding-left: 0px;
+}
+
+.form-tabs__item{
+    list-style: none;
+    display: inline-block;
+    margin: 2px 5px;
+}
