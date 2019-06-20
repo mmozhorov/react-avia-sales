@@ -22,14 +22,14 @@
     padding-right: 0px;
 }
 
-.ticket-container__right-part__img-plane {
-    position: relative;
-    top: 28px;
-    left: -36px;
+.ticket-container__right-part__stops-block{
+    padding-top: 20px;
+    text-align: center;
 }
 
 .ticket-container__right-part__stops{
     font-size: 10px;
+    margin-bottom: 0px  ;
 }
 
 .ticket-container__left-part{

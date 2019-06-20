@@ -110,6 +110,7 @@ export default class TicketComponent extends Component{
 
     }
 
+
     render() {
         return(
             <div className="ticket-container row">
@@ -123,7 +124,7 @@ export default class TicketComponent extends Component{
                         <p>{this.props.ticket.origin}, {this.props.ticket.origin_name}</p>
                         <p>{this.departure_date}</p>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-4 ticket-container__right-part__stops-block">
                         <p className="ticket-container__right-part__stops">{this.stops}</p>
                         <img src={plane} className="ticket-container__right-part__img-plane"/>
                     </div>

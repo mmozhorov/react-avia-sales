@@ -8,7 +8,16 @@ class TicketsContainer extends Component{
 
     constructor(props){
         super(props);
-        tickets.tickets.sort(this.sortByPrice);
+        this.allTickets = tickets.tickets.map( (item) => item );
+        this.allTickets.sort(this.sortByPrice);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.isSetParameters){
+                if (nextProps.currency.length){
+
+                }
+        }
     }
 
     sortByPrice(ticketA, ticketB){
@@ -18,7 +27,7 @@ class TicketsContainer extends Component{
     render() {
         return (
             <div>
-                <TicketsListComponent tickets={tickets.tickets} />
+                <TicketsListComponent tickets={this.allTickets} />
             </div>
         );
     }
