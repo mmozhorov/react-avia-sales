@@ -14,6 +14,22 @@
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
     margin-bottom: 20px;
+    position: relative;
+}
+
+.ticket-container__right-part div{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.ticket-container__right-part__img-plane {
+    position: relative;
+    top: 28px;
+    left: -36px;
+}
+
+.ticket-container__right-part__stops{
+    font-size: 10px;
 }
 
 .ticket-container__left-part{

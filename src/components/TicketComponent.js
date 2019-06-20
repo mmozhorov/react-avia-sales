@@ -3,6 +3,7 @@ import BA from './BA.png';
 import S7 from './S7.png';
 import SU from './SU.png';
 import TK from './TK.png';
+import plane from './plane.png';
 import './TicketComponent.css';
 
 export default class TicketComponent extends Component{
@@ -12,7 +13,30 @@ export default class TicketComponent extends Component{
         this.departure_date = this.getDate(this.props.ticket.departure_date);
         this.arrival_date = this.getDate(this.props.ticket.arrival_date);
         this.carrierLogo = this.getCarrierLogo(this.props.ticket.carrier);
+        this.stops = this.getStops(this.props.ticket.stops);
 
+
+    }
+
+    getStops(stops){
+        let result = "";
+        switch (stops) {
+            case 0:
+                result = "БЕЗ ПЕРЕСАДОК";
+                break;
+            case 1:
+                result = "1 ПЕРЕСАДКА";
+                break;
+            case 2:
+                result = "2 ПЕРЕСАДКИ";
+                break;
+            case 3:
+                result = "3 ПЕРЕСАДКИ";
+                break;
+            default:
+                break;
+        }
+        return result;
     }
 
     getDate(date){
@@ -94,14 +118,18 @@ export default class TicketComponent extends Component{
                     <button className="btn btn-buy">Купить за {this.props.ticket.price}</button>
                 </div>
                 <div className="col-md-8 ticket-container__right-part">
-                    <div className="col-md-6">
+                    <div className="col-md-4 text-left">
                         <h3>{this.props.ticket.departure_time}</h3>
                         <p>{this.props.ticket.origin}, {this.props.ticket.origin_name}</p>
                         <p>{this.departure_date}</p>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-4">
+                        <p className="ticket-container__right-part__stops">{this.stops}</p>
+                        <img src={plane} className="ticket-container__right-part__img-plane"/>
+                    </div>
+                    <div className="col-md-4 text-right">
                         <h3>{this.props.ticket.arrival_time}</h3>
-                        <p>{this.props.ticket.destination}, {this.props.ticket.destination_name}</p>
+                        <p>{this.props.ticket.destination_name}, {this.props.ticket.destination}</p>
                         <p>{this.arrival_date}</p>
                     </div>
                 </div>
