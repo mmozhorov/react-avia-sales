@@ -1,45 +1,29 @@
 import * as types from '../constants/filterTypes';
+import { FilterReducerInterface } from '../types/filterReducerTypes';
 
-const initialState = {
+const initialState: FilterReducerInterface = {
     isSetParameters : false,
-    customParameters: {
-        currency : "",
-        transferCount : []
-    }
+    currency : "",
+    transferCount: 0
 };
 
-export default function filter( state = initialState , action ) {
-
-    const customParameters = {...state.customParameters};
-
+export default function filter( state = initialState , action: any ) {
     switch ( action.type ) {
         case types.CHANGE_CURRENCY:
-
-            customParameters.currency = action.currency;
-
             return {
                 ...state,
-                isSetParameters : true,
-                customParameters : customParameters
+                currency: action.currency
             };
-
         case types.CHANGE_TRANSFER_COUNT:
-
-            const transferCount = customParameters.transferCount.find( item => item === action.transferCount);
-            if (transferCount){
-                customParameters.transferCount = customParameters.transferCount.filter( item => item !== action.transferCount);
-            }
-            else {
-                customParameters.transferCount.push(action.transferCount);
-            }
-
             return {
                 ...state,
-                isSetParameters : true,
-                customParameters : customParameters
-            };
-
-
+                transferCount: action.transferCount
+            }
+        case types.CLEAR_FILTERS:
+            return {
+                ...state,
+                isSetParameters: false
+            }
         default:
             return state;
     }
