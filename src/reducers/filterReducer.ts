@@ -1,7 +1,7 @@
 import * as types from '../constants/filterTypes';
-import { FilterReducerInterface } from '../types/filterReducerTypes';
+import { FilterParamsInterface } from '../types/filterReducerTypes';
 
-const initialState: FilterReducerInterface = {
+const initialState: FilterParamsInterface = {
     isSetParameters : false,
     currency : "",
     transferCount: 0

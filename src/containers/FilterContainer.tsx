@@ -1,26 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { changeCurrency, changeTransferCount} from "../actions/filterActions";
-import { CurrencyComponent } from '../components/CurrencyComponent';
-import TranferCountComponent from '../components/TransferCountComponent';
+import { changeCurrency, changeTransferCount, clearFilter} from "../actions/filterActions";
+import { CurrencyComponent } from '../components/Filter/CurrencyComponent';
+import { TransferCountComponent } from '../components/Filter/TransferCountComponent';
+
+import { FilterParamsInterface } from '../types/filterReducerTypes';
 import "./FilterContainer.css";
 
-class FilterContainer extends Component{
-    render() {
-        return(
-          <div className="filter-container">
-              <CurrencyComponent changeCurrency={this.props.changeCurrency}/>
-              <TranferCountComponent changeTransferCount={this.props.changeTransferCount} />
-          </div>
-        );
-    }
-}
+interface FilterFunctionInterface {
+    filterState: FilterParamsInterface,
+    changeCurrency: ( value: string ) => void,
+    changeTransferCount: ( value: number ) => void,
+    clearFilter: () => void
+};
 
+const FilterContainer = ( { filterState, changeCurrency , changeTransferCount, clearFilter  }: FilterFunctionInterface) => {
+    return(
+        <div className="filter-container">
+            <CurrencyComponent changeCurrency={filterActions.changeCurrency}/>
+            <TransferCountComponent changeTransferCount={filterActions.changeTransferCount} />
+        </div>
+    );
+};
 
-const mapStateToProps = state => ({
-    isSetParameters : state.FilterReducer.isSetParameters,
-    customParameters : state.FilterReducer.customParameters
-});
-
-
-export default connect(mapStateToProps , { changeCurrency , changeTransferCount })(FilterContainer);
+export default connect(
+    (state: any) => ({ filterState : state.FilterReducer }) ,
+    { changeCurrency , changeTransferCount, clearFilter })(FilterContainer);

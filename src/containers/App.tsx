@@ -3,7 +3,7 @@ import 'bootstrap3/dist/css/bootstrap.css';
 import { Provider } from 'react-redux';
 import reducer from '../reducers';
 import { createStore } from "redux";
-import { Header } from '../components/Header';
+import { Header } from '../components/Header/Header';
 import FilterContainer from '../containers/FilterContainer';
 import TicketContainer from '../containers/TicketsContainer';
 

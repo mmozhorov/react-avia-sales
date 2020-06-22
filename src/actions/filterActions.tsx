@@ -10,4 +10,8 @@ export const changeTransferCount = ( transferCount: string ) => ({
     transferCount
 });
 
+export const clearFilter = () => ({
+    type: types.CLEAR_FILTERS
+});
+
 

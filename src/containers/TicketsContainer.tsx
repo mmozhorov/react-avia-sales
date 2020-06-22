@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TicketsListComponent from '../components/TicketsListComponent';
+import { TicketsListComponent } from '../components/ResultList/TicketsListComponent';
 import {connect} from "react-redux";
 import './TicketContainer.css';
 
