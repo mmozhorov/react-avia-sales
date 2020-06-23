@@ -1,0 +1,18 @@
+.form-tabs{
+    padding-left: 0px;
+}
+
+.form-tabs__item{
+    list-style: none;
+    display: inline-block;
+    margin: 2px 5px;
+}
+
+.form-tabs__item__link{
+    cursor: pointer;
+}
+
+.form-tabs__item__link:hover{
+    border: solid 1px aqua;
+    border-radius: 2px;
+}

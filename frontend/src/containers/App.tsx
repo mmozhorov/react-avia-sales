@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import reducer from '../reducers';
 import { createStore } from "redux";
 import { Header } from '../components/Header/Header';
-import FilterContainer from '../containers/FilterContainer';
-import TicketContainer from '../containers/TicketsContainer';
+import { FilterContainer } from './FilterContainer';
+import { TicketsListComponent } from '../components/ResultList/TicketsListComponent';
 
 import './App.css';
 
@@ -19,10 +19,10 @@ function App() {
         <Header/>
         <div className="container">
           <div className="col-md-4 col-xs-12">
-            <FilterContainer/>
+              <FilterContainer/>
           </div>
           <div className="col-md-8 col-xs-12">
-            <TicketContainer/>
+              <TicketsListComponent />
           </div>
         </div>
       </Provider>
