@@ -6,15 +6,21 @@
   "scripts": {
     "start": "npm run build && node build/index.js",
     "start:dev": "nodemon",
-    "build": "rimraf ./build && tsc",
+    "migrate": "node src/db/migrate.js",
+    "build": "nodemon rimraf ./build && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.9",
+    "mongoose": "^5.9.20"
   },
   "devDependencies": {
+    "@types/express": "^4.17.6",
     "@types/node": "^14.0.13",
     "nodemon": "^2.0.4",
     "rimraf": "^3.0.2",

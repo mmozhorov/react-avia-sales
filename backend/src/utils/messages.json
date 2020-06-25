@@ -1,0 +1,21 @@
+{
+  "tickets": {
+    "errors": {
+
+    },
+    "success": {
+
+    }
+  },
+  "common": {
+    "errors": {
+      "notFound": "Not Found",
+      "accessForbidden": "Access Forbidden",
+      "unauthorized": "Unauthorized",
+      "badRequest": "Bad Request"
+    },
+    "success": {
+
+    }
+  }
+}
