@@ -1,4 +1,4 @@
-module.exports = function( target, key, descriptor ) {
+export const errorHandler = ( target: any, key: string, descriptor: any ) => {
     const oldFunction = descriptor.value;
     descriptor.value =  function (...args: any) {
         try{

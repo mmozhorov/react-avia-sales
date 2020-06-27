@@ -1,11 +1,9 @@
-const express = require('express');
-const errorHandler = require('../handlers/error.handler');
+import * as express from 'express';
 
-const ticketsRouter = express.Router();
+const router = express.Router();
 
-@errorHandler
-ticketsRouter.get('/', async (req, res, next) => {
-
+router.get('/', async (req: express.Request, res: express.Response ) => {
+    res.send("dfjkskldjkadkl");
 });
 
-module.exports = ticketsRouter;
+export default router;
