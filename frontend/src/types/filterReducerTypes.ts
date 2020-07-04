@@ -1,5 +1,7 @@
 export interface FilterParamsInterface {
     isSetParameters: boolean,
     currency: string,
-    transferCount: number
+    transferCount: number,
+    limit?: number,
+    offset?: number
 }

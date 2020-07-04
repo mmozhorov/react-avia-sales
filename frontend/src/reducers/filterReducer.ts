@@ -7,7 +7,7 @@ const initialState: FilterParamsInterface = {
     transferCount: 0
 };
 
-export default function filter( state = initialState , action: any ) {
+export default function filterReducer( state = initialState , action: any ) {
     switch ( action.type ) {
         case types.CHANGE_CURRENCY:
             return {
