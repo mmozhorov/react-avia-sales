@@ -4,8 +4,7 @@ import { TicketsService } from '../services/tickets.service';
 const router = express.Router();
 
 router.get('/', async (req: express.Request, res: express.Response ) => {
-    const { limit, offset } = req.query;
-    res.send(await TicketsService.getTickets(Number(limit), Number(offset)));
+    res.send(await TicketsService.getTickets(req.query));
 });
 
 export default router;

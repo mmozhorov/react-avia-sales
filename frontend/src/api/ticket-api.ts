@@ -29,20 +29,20 @@ export class TicketApi {
         const {
             limit = TICKET_LIMIT.DEFAULT,
             offset = TICKET_OFFSET.DEFAULT,
-            currency = TICKET_CURRENCY.DEFAULT,
+            currency,
             transferCount
         } = params;
 
-        const currencyParam = currency ? `currency=${currency}` : ``;
-        const transferCountParam = transferCount ? `transferCount=${transferCount}` : ``;
         const limitParam = `limit=${limit}`;
         const offsetParam = `offset=${offset}`;
+        const paramsUrlArr = [limitParam, offsetParam];
 
-        const paramsUrl = [currencyParam, transferCountParam, limitParam, offsetParam].join("&");
+        paramsUrlArr.push(currency ? `currency=${currency}` : ``);
+        paramsUrlArr.push(transferCount ? `transferCount=${transferCount}` : ``);
 
+        const paramsUrlStr = paramsUrlArr.slice(1).reduce( (acc, current ) => current ? `${acc}&${current}`: `${acc}`, paramsUrlArr[0]);
 
-        console.log(paramsUrl);
-        const response = await axios.get(`${ticketUrl}?${paramsUrl}`, { headers });
+        const response = await axios.get(`${ticketUrl}?${paramsUrlStr}`, { headers });
 
         return response.data;
     }

@@ -1,4 +1,6 @@
 import express = require('express');
+import bodyParser = require('body-parser');
+const queryParser = require('express-query-parser')
 import cors = require('cors');
 import path = require('path');
 import { config } from 'dotenv';
@@ -14,6 +16,13 @@ import ticketRouter from './routers/tickets.router';
 
     app.use(cors());
     app.use(express.static(path.join(__dirname, '../build')));
+    app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(
+        queryParser({
+            parseNull: true,
+            parseBoolean: true
+        })
+    )
 
     app.use('/tickets', ticketRouter);
 
