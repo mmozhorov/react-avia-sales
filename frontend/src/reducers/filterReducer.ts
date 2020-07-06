@@ -4,7 +4,7 @@ import { FilterParamsInterface } from '../types/filterReducerTypes';
 const initialState: FilterParamsInterface = {
     isSetParameters : false,
     currency : "",
-    transferCount: 0
+    transferCountArr: []
 };
 
 export default function filterReducer( state = initialState , action: any ) {
@@ -17,7 +17,7 @@ export default function filterReducer( state = initialState , action: any ) {
         case types.CHANGE_TRANSFER_COUNT:
             return {
                 ...state,
-                transferCount: action.transferCount
+                transferCountArr: action.transferCountArr
             }
         case types.CLEAR_FILTERS:
             return {

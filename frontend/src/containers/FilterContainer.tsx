@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import _ from 'lodash';
 
-import { changeCurrency } from '../actions/filterActions';
+import {changeCurrency, changeTransferCount} from '../actions/filterActions';
 import { TicketApi } from '../api/ticket-api';
 import { CurrencyComponent } from '../components/Filter/CurrencyComponent';
 import { TransferCountComponent } from '../components/Filter/TransferCountComponent';
@@ -23,18 +23,23 @@ class FilterContainer extends Component<any, any>{
             await TicketApi.getTickets(currentFilters);
     }
 
-    handleCurrency = async ( currency: string ) => {
+    handleCurrency = ( currency: string ) => {
         const { changeCurrency } = this.props;
         changeCurrency(currency);
     }
 
+    handleTransferCount = ( transferCountArr: string[] ) => {
+        const { changeTransferCount } = this.props;
+        changeTransferCount(transferCountArr);
+    }
+
     render(){
-        const { filters: { currency } } = this.props;
+        const { filters: { currency, transferCountArr } } = this.props;
 
         return(
             <div className="filter-container">
                 <CurrencyComponent handleCurrency={this.handleCurrency} currency={currency} />
-                <TransferCountComponent />
+                <TransferCountComponent handleTransferCount={this.handleTransferCount} transferCountArr={transferCountArr} />
             </div>
         );
     }
@@ -45,6 +50,7 @@ export default connect(
         filters: state.filters
     }),
     (dispatch) => ({
-        changeCurrency: (currency: string) => dispatch(changeCurrency(currency))
+        changeCurrency: (currency: string) => dispatch(changeCurrency(currency)),
+        changeTransferCount: ( transferCountArr: string[] ) => dispatch(changeTransferCount(transferCountArr))
     })
 )(FilterContainer);

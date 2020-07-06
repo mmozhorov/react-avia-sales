@@ -5,9 +5,9 @@ export const changeCurrency = ( currency: string ) => ({
     currency
 });
 
-export const changeTransferCount = ( transferCount: string ) => ({
+export const changeTransferCount = ( transferCountArr: string[] ) => ({
     type: types.CHANGE_TRANSFER_COUNT,
-    transferCount
+    transferCountArr
 });
 
 export const clearFilter = () => ({

@@ -21,16 +21,12 @@ enum TICKET_CURRENCY {
 }
 
 export class TicketApi {
-    private HEADERS = {
-
-    };
-
     static async getTickets( params: FilterParamsInterface ): Promise<any>{
         const {
             limit = TICKET_LIMIT.DEFAULT,
             offset = TICKET_OFFSET.DEFAULT,
             currency,
-            transferCount
+            transferCountArr
         } = params;
 
         const limitParam = `limit=${limit}`;
@@ -38,7 +34,11 @@ export class TicketApi {
         const paramsUrlArr = [limitParam, offsetParam];
 
         paramsUrlArr.push(currency ? `currency=${currency}` : ``);
-        paramsUrlArr.push(transferCount ? `transferCount=${transferCount}` : ``);
+
+        if (transferCountArr.length){
+            for( let desiredCount of transferCountArr )
+                paramsUrlArr.push(`transferCount=${desiredCount}`);
+        }
 
         const paramsUrlStr = paramsUrlArr.slice(1).reduce( (acc, current ) => current ? `${acc}&${current}`: `${acc}`, paramsUrlArr[0]);
 
