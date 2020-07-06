@@ -8,6 +8,15 @@
     margin: 2px 5px;
 }
 
+.form-tabs__item .btn-primary{
+    background-color: #30a2d3;
+    border-color: #30a2d3;
+}
+
+.form-tabs__item button {
+    border-radius: 0px;
+}
+
 .form-tabs__item__link{
     cursor: pointer;
 }
