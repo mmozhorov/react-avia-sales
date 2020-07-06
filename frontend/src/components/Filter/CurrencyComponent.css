@@ -11,8 +11,3 @@
 .form-tabs__item__link{
     cursor: pointer;
 }
-
-.form-tabs__item__link:hover{
-    border: solid 1px aqua;
-    border-radius: 2px;
-}

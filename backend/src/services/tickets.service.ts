@@ -16,7 +16,6 @@ export class TicketsService{
         if (typeof stops !== 'undefined')
             Object.assign(queryParams, { stops });
 
-        return await ticketModel.find({  }, { '_id': 0, '__v': 0 }, { limit: Number(limit), offset: Number(offset) });
-        //return await ticketModel.find({ 'stops': stops }, { '_id': 0, '__v': 0 }).skip(offset).limit(limit);
+        return await ticketModel.find(queryParams, { '_id': 0, '__v': 0 }).skip(Number(offset)).limit(Number(limit));
     }
 }

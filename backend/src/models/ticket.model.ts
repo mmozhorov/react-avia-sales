@@ -10,6 +10,7 @@ const ticketSchema = new mongoose.Schema({
     arrival_date: { type: Date },
     arrival_time: { type: String },
     carrier: { type: String, required: true },
+    currency: { type: String },
     stops: { type: Number, required: true },
     price: { type: Number, required: true }
 });

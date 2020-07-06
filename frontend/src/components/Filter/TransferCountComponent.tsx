@@ -9,7 +9,7 @@ export const TransferCountComponent = () => {
     const { dispatch } = useFilters();
     return (
         <div>
-            <h5>КОЛИЧЕСТВО ПЕРЕСАДОК</h5>
+            <h5>Количество пересадок</h5>
             {CountOfTransfer.map( (item, i) => {
                 return <p  key={i}><input type="checkbox" value={item} onChange={ () => dispatch(changeTransferCount(item)) } />{item}</p>
             })}
