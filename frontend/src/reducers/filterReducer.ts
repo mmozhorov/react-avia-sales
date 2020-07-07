@@ -2,7 +2,6 @@ import * as types from '../constants/filterTypes';
 import { FilterParamsInterface } from '../types/filterReducerTypes';
 
 const initialState: FilterParamsInterface = {
-    isSetParameters : false,
     currency : "",
     transferCountArr: []
 };
@@ -20,10 +19,7 @@ export default function filterReducer( state = initialState , action: any ) {
                 transferCountArr: action.transferCountArr
             }
         case types.CLEAR_FILTERS:
-            return {
-                ...state,
-                isSetParameters: false
-            }
+            return state;
         default:
             return state;
     }

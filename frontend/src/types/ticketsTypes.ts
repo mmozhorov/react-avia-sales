@@ -13,5 +13,6 @@ export interface TicketInterface {
 }
 export interface TicketsInterface {
     isLoading: boolean,
-    tickets: TicketInterface[]
+    tickets: TicketInterface[],
+    error: any
 }

@@ -8,7 +8,7 @@
     "departure_time": "16:20",
     "arrival_date": "12.05.18",
     "arrival_time": "22:10",
-    "carrier": "TK",
+    "carrier": "http://localhost:3001/img/TK.png",
     "currency": "RUB",
     "stops": 3,
     "price": 9990
@@ -21,7 +21,7 @@
     "departure_time": "17:20",
     "arrival_date": "12.05.18",
     "arrival_time": "23:50",
-    "carrier": "S7",
+    "carrier": "http://localhost:3001/img/S7.png",
     "currency": "RUB",
     "stops": 1,
     "price": 700
@@ -34,7 +34,7 @@
     "departure_time": "12:10",
     "arrival_date": "12.05.18",
     "arrival_time": "18:10",
-    "carrier": "SU",
+    "carrier": "http://localhost:3001/img/SU.png",
     "currency": "RUB",
     "stops": 0,
     "price": 2100
@@ -47,7 +47,7 @@
     "departure_time": "17:00",
     "arrival_date": "12.05.18",
     "arrival_time": "23:30",
-    "carrier": "TK",
+    "carrier": "http://localhost:3001/img/TK.png",
     "currency": "RUB",
     "stops": 2,
     "price": 15000
@@ -60,7 +60,7 @@
     "departure_time": "12:10",
     "arrival_date": "12.05.18",
     "arrival_time": "20:15",
-    "carrier": "BA",
+    "carrier": "http://localhost:3001/img/BA.png",
     "currency": "USD",
     "stops": 3,
     "price": 1300
@@ -73,7 +73,7 @@
     "departure_time": "9:40",
     "arrival_date": "12.05.18",
     "arrival_time": "19:25",
-    "carrier": "SU",
+    "carrier": "http://localhost:3001/img/SU.png",
     "currency": "USD",
     "stops": 3,
     "price": 2450
@@ -86,7 +86,7 @@
     "departure_time": "17:10",
     "arrival_date": "12.05.18",
     "arrival_time": "23:45",
-    "carrier": "TK",
+    "carrier": "http://localhost:3001/img/TK.png",
     "currency": "EUR",
     "stops": 1,
     "price": 1000
@@ -99,7 +99,7 @@
     "departure_time": "6:10",
     "arrival_date": "12.05.18",
     "arrival_time": "15:25",
-    "carrier": "TK",
+    "carrier": "http://localhost:3001/img/TK.png",
     "currency": "EUR",
     "stops": 0,
     "price": 493
@@ -112,7 +112,7 @@
     "departure_time": "16:50",
     "arrival_date": "12.05.18",
     "arrival_time": "23:35",
-    "carrier": "SU",
+    "carrier": "http://localhost:3001/img/SU.png",
     "currency": "EUR",
     "stops": 1,
     "price": 932
@@ -125,7 +125,7 @@
     "departure_time": "6:10",
     "arrival_date": "12.05.18",
     "arrival_time": "16:15",
-    "carrier": "S7",
+    "carrier": "http://localhost:3001/img/S7.png",
     "currency": "RUB",
     "stops": 0,
     "price": 7320
@@ -138,7 +138,7 @@
     "departure_time": "6:10",
     "arrival_date": "12.05.18",
     "arrival_time": "16:15",
-    "carrier": "S7",
+    "carrier": "http://localhost:3001/img/S7.png",
     "currency": "EUR",
     "stops": 0,
     "price": 173
