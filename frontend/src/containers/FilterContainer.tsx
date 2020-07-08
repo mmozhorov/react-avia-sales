@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import _ from 'lodash';
 
+import {TicketsInterface} from "../types/ticketsTypes";
+
 import {changeCurrency, changeTransferCount} from '../actions/filterActions';
 import {getTicketsListFailed, getTicketsListRequest, getTicketsListSuccess} from "../actions/ticketsActions";
 
@@ -11,7 +13,6 @@ import { CurrencyComponent } from '../components/Filter/CurrencyComponent';
 import { TransferCountComponent } from '../components/Filter/TransferCountComponent';
 
 import "./FilterContainer.css";
-import {TicketsInterface} from "../types/ticketsTypes";
 
 class FilterContainer extends Component<any, any>{
 
@@ -34,11 +35,11 @@ class FilterContainer extends Component<any, any>{
 
         try{
             getTicketsListRequest();
-            const tickets = await TicketApi.getTickets(filters);
-            getTicketsListSuccess(tickets);
+            const {ticketsCount, tickets} = await TicketApi.getTickets(filters);
+            getTicketsListSuccess(ticketsCount, tickets);
         }
-        catch (e) {
-            getTicketsListFailed(e);
+        catch (error) {
+            getTicketsListFailed(error);
         }
     }
 
@@ -68,14 +69,14 @@ class FilterContainer extends Component<any, any>{
 };
 
 export default connect(
-    (state: any) => ({
-        filters: state.filters
+    ({ filters }: any) => ({
+        filters
     }),
     (dispatch) => ({
         changeCurrency: (currency: string) => dispatch(changeCurrency(currency)),
         changeTransferCount: ( transferCountArr: string[] ) => dispatch(changeTransferCount(transferCountArr)),
         getTicketsListRequest: () => dispatch(getTicketsListRequest()),
-        getTicketsListSuccess: ( tickets: TicketsInterface ) => dispatch(getTicketsListSuccess(tickets)),
+        getTicketsListSuccess: ( ticketsCount: number, tickets: TicketsInterface ) => dispatch(getTicketsListSuccess(ticketsCount, tickets)),
         getTicketsListFailed: ( error: any ) => dispatch(getTicketsListFailed(error))
     })
 )(FilterContainer);

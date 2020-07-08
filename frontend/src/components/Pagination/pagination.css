@@ -1,0 +1,22 @@
+.pagination-block{
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-block .page-link{
+    cursor: pointer;
+    border-radius: 0px;
+    color: #30a2d3;
+}
+
+.pagination-block .page-link:first-child, .pagination-block .page-link:last-child{
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.pagination-block .page-item--active{
+    background-color: #30a2d3;
+    color: white;
+}

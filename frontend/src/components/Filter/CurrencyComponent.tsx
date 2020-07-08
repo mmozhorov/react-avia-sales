@@ -1,9 +1,10 @@
 import React from 'react';
+
 import './CurrencyComponent.css';
 
 const currencyTypes = [ "RUB", "USD" , "EUR" ];
 
-export const CurrencyComponent = ({ handleCurrency, currency }) => (
+export const CurrencyComponent = ({ handleCurrency, currency }) =>
     <div className="currency-filter">
         <h5>Currency</h5>
         <ul className="form-tabs">
@@ -19,4 +20,3 @@ export const CurrencyComponent = ({ handleCurrency, currency }) => (
             })}
         </ul>
     </div>
-);

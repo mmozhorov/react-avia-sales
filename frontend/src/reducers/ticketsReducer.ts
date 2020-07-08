@@ -1,11 +1,11 @@
 import { TicketsInterface } from "../types/ticketsTypes";
 import * as types from '../constants/ticketTypes';
-import {strictEqual} from "assert";
 
 const initialState: TicketsInterface = {
     isLoading: false,
     error: null,
-    tickets: []
+    tickets: [],
+    ticketsCount: 0
 };
 
 export default function ticketsReducer( state = initialState, action: any ) {
@@ -21,7 +21,8 @@ export default function ticketsReducer( state = initialState, action: any ) {
                 ...state,
                 isLoading: false,
                 error: null,
-                tickets: action.tickets
+                tickets: action.tickets,
+                ticketsCount: action.ticketsCount
             }
         case types.TICKETS_FAILED:
             return {

@@ -6,8 +6,9 @@ export const getTicketsListRequest = ( ) => ({
     isLoading: true
 });
 
-export const getTicketsListSuccess = ( tickets: TicketsInterface ) => ({
+export const getTicketsListSuccess = ( ticketsCount: number, tickets: TicketsInterface ) => ({
     type: types.TICKETS_SUCCESS,
+    ticketsCount,
     tickets,
     isLoading: false
 });

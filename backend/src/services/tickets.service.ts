@@ -20,6 +20,9 @@ export class TicketsService{
         if(stops.length)
             Object.assign(queryParams, { 'stops':  { $in:stops } });
 
-        return await ticketModel.find(queryParams, { '_id': 0, '__v': 0 }).skip(offset).limit(limit);
+        return await Promise.all([
+            await ticketModel.find(queryParams, { '_id': 0, '__v': 0 }).count(),
+            await ticketModel.find(queryParams, { '_id': 0, '__v': 0 }).skip(offset*limit).limit(limit)
+        ]);
     }
 }

@@ -10,3 +10,13 @@ export const useTickets = () => {
         tickets
     };
 }
+
+export const useTicketsCount = () => {
+    const dispatch = useDispatch();
+    const ticketsCount = useSelector( (state: any): TicketInterface[] => state.tickets.ticketsCount );
+
+    return {
+        dispatch,
+        ticketsCount
+    };
+}
