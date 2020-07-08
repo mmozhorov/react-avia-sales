@@ -5,7 +5,8 @@ const initialState: FilterParamsInterface = {
     currency : "",
     transferCountArr: [],
     limit: 10,
-    offset: 0
+    offset: 0,
+    orderFilter: ""
 };
 
 export default function filterReducer( state = initialState , action: any ) {
@@ -25,12 +26,19 @@ export default function filterReducer( state = initialState , action: any ) {
         case types.CHANGE_LIMIT:
             return {
                 ...state,
-                limit: action.limit
+                limit: action.limit,
+                offset: initialState.offset
             }
         case types.CHANGE_OFFSET:
             return {
                 ...state,
                 offset: action.offset
+            }
+        case types.CHANGE_ORDER_FILTER:
+            return {
+                ...state,
+                orderFilter: action.orderFilter,
+                offset: initialState.offset
             }
         case types.CLEAR_FILTERS:
             return initialState;

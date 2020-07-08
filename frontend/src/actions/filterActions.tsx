@@ -20,6 +20,11 @@ export const changeOffset = ( offset: number ) => ({
    offset
 });
 
+export const changeOrderFilter = ( orderFilter: string ) => ({
+    type: types.CHANGE_ORDER_FILTER,
+    orderFilter
+});
+
 export const clearFilter = () => ({
     type: types.CLEAR_FILTERS
 });
